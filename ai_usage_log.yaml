@@ -1,0 +1,22 @@
+# AI Usage Log for StudySync (Tinkers 1B Split the Logic, 2B Wire It Up, 3B Rank & Explain)
+#
+# Same format as ~/ai110-playlist-chaos/ai_usage_log.yaml. Append one entry to
+# `entries` per AI collaboration, WHILE working, not afterward. Part 4 of Split
+# the Logic ("Reflect Fast") asks for one AI suggestion accepted as-is and one
+# you had to fix or reject. The project rubrics grade the same thing, so write
+# those down when they happen.
+#
+# Ordering: `entries` stays in chronological order by `timestamp`. When
+# backfilling, insert at the right position instead of appending.
+#
+# tinker: 1B | 2B | 3B, since this one repo serves all three.
+# session_id: the Claude Code session UUID the prompt was made in.
+# session_name: a list. Append new names on rename; the last one is current.
+# decision: accepted | revised | rejected. What you did with the suggestion.
+#
+# Reflection is in Danny's own words. Before writing it, ask:
+#   - Did AI save time or add confusion?
+#   - Did I understand why the fix worked?
+#   - How might I prompt differently next time?
+
+entries: []
