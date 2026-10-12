@@ -14,7 +14,11 @@ from scoring_helpers import apply_streak_bonus
 
 
 def session_rating(combined_score: int) -> str:
-    """Rate a study session from its combined minutes+focus score. Correct and tested."""
+    """Rate a study session from its combined minutes+focus score. Correct and tested.
+
+    Expects an int from 0 to 100. The tab guarantees this (int sliders, streak >= 0, score capped at
+    100 by apply_streak_bonus); there is deliberately no validation here (Tinker 1B, step 3).
+    """
     if combined_score >= 90:
         return "Great"
     if combined_score >= 80:
