@@ -37,42 +37,42 @@ entries:
   - timestamp: 2026-10-12T07:10:09-04:00
     tinker: 1B
     session_id: 5b5f3be2-5d81-4f2b-8c62-129e2b7e9e58
-    session_name: []
+    session_name: [flag-session-rating-breakers, StudySync-1b]
     suggestion: Plan for moving apply_streak_bonus from scoring.py to scoring_helpers.py, leaving an import in scoring.py, with demo and pytest checks
     decision: accepted
     reflection: ""
   - timestamp: 2026-10-12T07:13:47-04:00
     tinker: 1B
     session_id: 5b5f3be2-5d81-4f2b-8c62-129e2b7e9e58
-    session_name: []
+    session_name: [flag-session-rating-breakers, StudySync-1b]
     suggestion: Move apply_streak_bonus verbatim into scoring_helpers.py, replace the old definition in scoring.py with an import, then verify the demo output is unchanged and pytest passes
     decision: accepted
     reflection: ""
   - timestamp: 2026-10-12T07:45:15-04:00
     tinker: 1B
     session_id: 5b5f3be2-5d81-4f2b-8c62-129e2b7e9e58
-    session_name: []
+    session_name: [flag-session-rating-breakers, StudySync-1b]
     suggestion: Raise ValueError for negative scores and scores over 100 in session_rating(), with pytest.raises tests
     decision: rejected
     reflection: ""
   - timestamp: 2026-10-12T07:52:54-04:00
     tinker: 1B
     session_id: 5b5f3be2-5d81-4f2b-8c62-129e2b7e9e58
-    session_name: []
+    session_name: [flag-session-rating-breakers, StudySync-1b]
     suggestion: Run the three weird-input calls myself in the shell and record the output
     decision: revised
     reflection: ""
   - timestamp: 2026-10-12T12:22:23-04:00
     tinker: 1B
     session_id: 5b5f3be2-5d81-4f2b-8c62-129e2b7e9e58
-    session_name: []
+    session_name: [flag-session-rating-breakers, StudySync-1b]
     suggestion: Document the expected input range (int 0-100) in the session_rating docstring and flag the three breaker inputs out of scope, with no new validation
     decision: accepted
     reflection: ""
   - timestamp: 2026-10-12T12:54:49-04:00
     tinker: 1B
     session_id: 5b5f3be2-5d81-4f2b-8c62-129e2b7e9e58
-    session_name: []
+    session_name: [flag-session-rating-breakers, StudySync-1b]
     suggestion: Add a README section explaining the Session Scorer data path, from sliders to rating
     decision: accepted
     reflection: ""
