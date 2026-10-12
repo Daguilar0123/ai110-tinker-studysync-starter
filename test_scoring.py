@@ -10,6 +10,14 @@ from scoring import session_rating
 def test_session_rating_boundary_90_is_great():
     assert session_rating(90) == "Great"
 
+def test_session_rating_boundary_85_is_good():
+    assert session_rating(85) == "Good"
 
-# TODO: add at least one more test, e.g. a boundary case for "Skip" (a score
-# of 59) or the exact boundary for "Good" (a score of 80).
+def test_session_rating_boundary_72_is_OK():
+    assert session_rating(72) == "OK"
+
+def test_session_rating_boundary_63_is_meh():
+    assert session_rating(63) == "Meh"
+
+def test_session_rating_boundary_59_is_skip():
+    assert session_rating(59) == "Skip"
