@@ -61,4 +61,17 @@ pytest
 - `diagram.mmd` — Mermaid data-flow diagram, completed in Tinker 3B
 - `test_scoring.py` — starting point for your own tests
 
+## How the Session Scorer data flows
+
+Danny traced this path on 2026-10-12.
+
+1. **Inputs.** The user sets `minutes` (0–60) and `focus` (0–60) with sliders, and `streak` (0 or more) with a number input. All three return integers.
+2. **Combined score.** `combined = minutes + focus`, so it ranges from 0 to 120.
+3. **Streak bonus.** `apply_streak_bonus(combined, streak)` in `scoring_helpers.py` adds 2 points per streak day and caps the result at 100: `boosted = min(combined + streak * 2, 100)`.
+4. **Rating.** `session_rating(boosted)` in `scoring.py` maps the boosted score to a label: Great (90+), Good (80+), OK (70+), Meh (60+), or Skip (below 60).
+
+Because the inputs are integers, the streak can't be negative, and the cap is applied last, `session_rating()` only ever receives an integer from 0 to 100. Negative numbers, scores over 100, and decimals like `87.5` can't reach it from the app.
+
+This guarantee depends on the widget settings. Changing `min_value` or `step` in the Session Scorer tab could let other values through. `session_rating()` doesn't validate its input itself, so code that calls it directly (such as a test or a script) needs to stay within the same range.
+
 Your instructor will tell you which tinker you're on. Follow the activity on the course portal.
