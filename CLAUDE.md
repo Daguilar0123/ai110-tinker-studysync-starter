@@ -22,9 +22,14 @@ The README has the student-facing setup. This file is for agents and for Danny r
 
 ## Status (snapshot, 2026-10-12)
 
-- **1B:** `test_scoring.py` is complete, with 5 `session_rating` boundary tests (commit `79c952f`, 2026-10-12). `apply_streak_bonus` was moved from `scoring.py` to `scoring_helpers.py` in the working tree on 2026-10-12. That move was uncommitted at the time of this snapshot.
-- **2B:** `sessions.py` still has `NotImplementedError` stubs and TODOs for Parts 1–4.
-- **3B:** `ranking.py` still has `NotImplementedError` stubs and TODOs. `diagram.mmd` is still the placeholder comment.
+- **1B, closed by Danny on 2026-10-12.** All three parts are done:
+  - Part 1: `test_scoring.py` has 5 `session_rating` boundary tests (commit `79c952f`).
+  - Part 2: `apply_streak_bonus` moved to `scoring_helpers.py` (commit `3f0c08d`). Demo output unchanged.
+  - Part 3: the three breaker inputs (negative, over 100, decimal) are flagged out of scope. The app can't send them, since the sliders and streak input return ints and `apply_streak_bonus` caps at 100. The docstring documents the int 0–100 contract (commit `5161c24`).
+  - The Session Scorer data path is in `README.md` (uncommitted as of this close-out).
+- **Decision to keep (Danny, 2026-10-11):** the input validation commit `b70c4e6` (2026-09-23) was dropped on purpose by a reset to `origin/main`. It's still in the reflog. Don't restore it unless Danny asks.
+- **2B:** `sessions.py` still has `NotImplementedError` stubs and TODOs for Parts 1–4. Not started.
+- **3B:** `ranking.py` still has `NotImplementedError` stubs and TODOs. `diagram.mmd` is still the placeholder comment. Not started.
 
 This snapshot goes stale. `git log` and `git status` are the source of truth for current state.
 
