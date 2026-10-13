@@ -76,3 +76,24 @@ entries:
     suggestion: Add a README section explaining the Session Scorer data path, from sliders to rating
     decision: accepted
     reflection: ""
+  - timestamp: 2026-10-12T17:16:50-04:00
+    tinker: 2B
+    session_id: e869fae8-0caf-43c1-af8f-2ae7e3e9dcba
+    session_name: [StudySync-2b]
+    suggestion: Initialize st.session_state.fixed_count once with the not-in-session_state check, increment it inside the "Log a session (fixed)" button body, and show st.session_state.fixed_count in the metric instead of the literal 0 (Part 1 of Tinker 2B, sessions.py)
+    decision: accepted
+    reflection: ""
+  - timestamp: 2026-10-12T23:15:54-04:00
+    tinker: 2B
+    session_id: e869fae8-0caf-43c1-af8f-2ae7e3e9dcba
+    session_name: [StudySync-2b]
+    suggestion: Validate the Add session input before appending. Reject an empty or whitespace-only subject and a duration not greater than 0, each with a specific st.error message, using if/elif/else so nothing is appended on failure (Part 2 of Tinker 2B, sessions.py)
+    decision: accepted
+    reflection: ""
+  - timestamp: 2026-10-12T23:15:54-04:00
+    tinker: 2B
+    session_id: e869fae8-0caf-43c1-af8f-2ae7e3e9dcba
+    session_name: [StudySync-2b]
+    suggestion: Explain that @dataclass generates __init__, __repr__, and __eq__ from annotated fields, so SessionDC needs no hand-written constructor or repr, and check PlainSession against SessionDC output in a shell run (Part 3 of Tinker 2B, sessions.py)
+    decision: accepted
+    reflection: ""

@@ -62,3 +62,37 @@ It's input the function was never meant to receive, but it is not a bug because 
 **Which breaker input surprised you most, and why?**
 
 I was most surprised by all of the inputs not being bugs, but once I traced the flow of information, from the user input via the sliders to the path those inputs took to get to the `session_rating(...)` function, it became clear why this was the case.
+
+
+# Tinker 2B: Wire it Up
+## Part 1: 
+📍Checkpoint: The broken counter still resets. The fixed counter climbs with each click.Explain the difference in one sentence using "rerun."
+Before you move on, answer: In your own words, what does "rerun" mean here? Then tighten it into one sentence.
+
+Rerun is Streamlit running the whole script from top to bottom each time, so the broken counter's count = 0 executes on every rerun, while the fixed counter's fixed_count = 0 executes only when the key is missing from session state, which happens once per session on the first load only.
+
+## Part 2: Validate before you store
+📍 Checkpoint: An empty subject or a zero/negative duration shows an error and adds nothing. A valid session still adds correctly.
+Before you move on, have one navigator answer:
+What's one input a user might type that you haven't tested yet?
+non-alphanumeric symbols, all numbers no alphas. These get accepted with no error, despite being nonsensical.
+
+## Part 3: Plain Class vs. Dataclass
+📍Checkpoint: SessionDC works, its output matches PlainSession's, and you can name one thing @dataclass generated for you.
+```
+@dataclass
+class SessionDC:
+    subject: str
+    minutes: int
+    priority: str = "medium"
+
+From those lines, @dataclass generates:
+
+- __init__, which takes subject, minutes, and priority="medium", the same signature as PlainSession.__init__.
+- __repr__, which prints the class name and each field. Running both classes with the same values printed the same text, so the output matches.
+- __eq__, which compares fields. Two SessionDC objects with the same values are equal. PlainSession has no __eq__, so two with the same values are not equal.
+```
+What did @dataclass generate that you didn't write yourself?
+As described above, @dataclass generates the constructor, the __repr__ and the __eq__ methods, which are responsible for initializing the class instance, printing the class instance fields, and comparing those fields. This is seen by the fact that SessionDC even prints at all, let alone prints identically to PlainSession.
+
+## Part 4: Recurrence and Conflicts
