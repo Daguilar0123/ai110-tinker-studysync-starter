@@ -60,11 +60,12 @@ def render_session_log_tab():
         count += 1
     st.metric("Sessions logged (broken)", count)
 
-    # TODO (Part 1): initialize st.session_state.fixed_count once, then
-    # increment it here instead of the broken counter above.
+    if "fixed_count" not in st.session_state:
+        st.session_state.fixed_count = 0
+
     if st.button("Log a session (fixed)"):
-        pass
-    st.metric("Sessions logged (fixed)", 0)  # TODO: display st.session_state.fixed_count.
+        st.session_state.fixed_count += 1
+    st.metric("Sessions logged (fixed)", st.session_state.fixed_count)
 
     st.divider()
     st.subheader("Part 2: Session List (with validation)")
@@ -76,9 +77,12 @@ def render_session_log_tab():
     duration = st.number_input("Duration (minutes)", value=30, step=1)
 
     if st.button("Add session"):
-        # TODO (Part 2): reject an empty/whitespace-only subject and a
-        # duration that isn't > 0. Show st.error(...) instead of appending.
-        st.session_state.mini_sessions.append({"subject": subject, "duration": duration})
+        if not subject.strip():
+            st.error("Subject can't be empty or only spaces.")
+        elif duration <= 0:
+            st.error("Duration must be greater than 0 minutes.")
+        else:
+            st.session_state.mini_sessions.append({"subject": subject, "duration": duration})
 
     st.write(st.session_state.mini_sessions)
 
