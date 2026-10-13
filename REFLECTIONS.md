@@ -96,3 +96,8 @@ What did @dataclass generate that you didn't write yourself?
 As described above, @dataclass generates the constructor, the __repr__ and the __eq__ methods, which are responsible for initializing the class instance, printing the class instance fields, and comparing those fields. This is seen by the fact that SessionDC even prints at all, let alone prints identically to PlainSession.
 
 ## Part 4: Recurrence and Conflicts
+📍Checkpoint: next_occurrence is correct for both frequencies. find_conflicts flags the duplicate slot and handles an empty list safely — try the "Check for time conflicts" button in the Session Log tab to see it wired into the app.
+
+Before you move on, answer: Why does find_conflicts need to handle an empty list without crashing? Then name a real scenario where that matters.
+
+An empty list is a normal input, not an edge case, because it's what the function receives whenever no sessions have been logged or no clashes exist, so a crash there would be a common failure. The loops never index into the list, so an empty input simply runs zero iterations and returns the empty result, but code that indexed directly (such as sessions[0]) would raise an IndexError on this same input.
